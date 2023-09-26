@@ -9,7 +9,7 @@ Suite Teardown  capture page screenshot
 # runner/run_in_prod.sh feature-failed-payment
 *** Test Cases ***
 User Receives Error Message For Declined Credit Card Payment
-    [Tags]    smoke    feature-payment    feature-failed-payment
+    [Tags]    smoke    feature-payments    feature-failed-payment
     Given User Is In Homepage
     And User Goes To Sim Plans
     And User Selects Seven Day Sim Plans
