@@ -22,6 +22,10 @@ User Purchases With A Declined Payment
 #==========================================================#
 #                    THEN 
 #==========================================================#
+Error Message Should Be Visible
+    location should contain    error=true
+    page should contain    Credit Card payment failed
+    page should contain    Your attempt to pay via Credit Card has failed. Please ensure you have enough funds and try again or use another credit card.
 
 #==========================================================#
 #              INTERNAL KEYWORDS 
@@ -124,6 +128,7 @@ Click Continue To Payment Button
 # o Expiry 01/27
 # o CVV: 123
 Fill Up Invalid Credit Card Details
+    title should be    amaysim | payment
     Fill Up Card Number    4242 4242 4242 4242
     Fill Up Expiry   01/27
     Fill Up CVC   123
@@ -150,5 +155,3 @@ Tick Agreement Checkbox
 Click Place Your Order Button
     click element    //a[@data-testid="submit-button"]
     wait until element is not visible   ${payment_loading_cart_items_txt}
-    page should contain    Credit Card payment failed
-    page should contain    Your attempt to pay via Credit Card has failed. Please ensure you have enough funds and try again or use another credit card.
