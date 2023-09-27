@@ -1,4 +1,5 @@
 *** Settings ***
+Resource    ${KEYWORDPATH}common_keywords.robot
 Resource    ${VARIABLEPATH}homepage_variables.robot
 
 *** Keywords ***
@@ -7,7 +8,6 @@ Resource    ${VARIABLEPATH}homepage_variables.robot
 #==========================================================#
 User Is In Homepage
     Navigate To URL    ${URL}
-    wait for condition    return document.readyState == "complete"
     wait until element is visible    ${feedback_btn}
     title should be    Best value phone plans in Australia | amaysim
 
@@ -17,7 +17,6 @@ User Goes To Sim Plans
 User Selects Seven Day Sim Plans
     click element    ${homepage_nav_simplans_sevenday}
     wait until element is not visible    ${homepage_nav_simplans_sevenday}
-    wait for condition    return document.readyState == "complete"
     wait until element is visible    ${feedback_btn}
     title should be    7 Day SIM Plans | amaysim
 

@@ -10,7 +10,7 @@ Suite Teardown  run keywords    capture page screenshot
 
 *** Test Cases ***
 User Consistently Receives Error Message For Declined Credit Card Payment
-    [Tags]    smoke    feature-payments    feature-failed-payment
+    [Tags]    payments    failed-payments
     repeat keyword    5 times    User Receives Error Message For Declined Credit Card Payment
 
 *** Keywords ***
