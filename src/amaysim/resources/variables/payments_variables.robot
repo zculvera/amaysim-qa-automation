@@ -1,15 +1,18 @@
 *** Variables ***
-# TODO: rename to create sim plan
+# TODO: categorize to card, about, pay
 ${payment_sevendaysimplan_buy_btn}    //a[text()='Buy now']
 ${payment_loading_txt}      //span[text()='loading...']
 ${payment_pick_new_number}  (//div[@data-testid="number-transfer-switcher"]//input[@data-testid="number-option-1"]/following-sibling::span)[1]
 ${payment_new_number}       //span[@data-new-number]
 ${payment_usim_input}       //input[@value='USIM']/parent::label
 ${payment_checkout_btn}     data-testid="product-checkout-button"
-${payment_loading_cart_items_txt}      //span[text()='loading...']
+${payment_loading_cart_items_txt}      //span[text()='loading cart items']
 ${feedback_btn}      //iframe[@title="Usabilla Feedback Button"]
 
+# ENTER CARD
 ${payment_new_customer_option}    data-testid="existing-user-no"
+
+# ENTER CUSTOMER DETAILS
 ${payment_fname_input}    //input[@name="firstName"]
 ${payment_lname_input}    //input[@name="lastName"]
 ${payment_dob_input}    //input[@name="dateOfBirth"]
@@ -21,3 +24,10 @@ ${payment_card_input}    //*[text()='Credit or Debit card']/preceding-sibling::d
 ${payment_paypal_input}    //*[text()='PayPal']/preceding-sibling::div
 ${payment_acknowledge_tac}    name="acceptTermsAndConditions"
 ${payment_continue_btn}    //button[@data-continue-to-payment-button]
+${payment_suggested_first_row}    (//ul/li)[1]
+${_loading_address}    //input[@class='react-autosuggest__input']
+
+#ENTER CREDIT CARD DETAILS
+${payment_cardnumber_input}    //input[@data-elements-stable-field-name="cardNumber"]
+${payment_expirydate_input}    //input[@data-elements-stable-field-name="cardExpiry"]
+${payment_cvc_input}    //div[@data-cy="cvc"]//input[@class="__PrivateStripeElement-input"]

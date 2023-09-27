@@ -3,8 +3,10 @@ Documentation   This is a test for failed payment of a user purchasing 7 day pla
 Resource    ${GLOBAL_SETUP}
 Resource    ${KEYWORDPATH}payments_keywords.robot
 Resource    ${KEYWORDPATH}homepage_keywords.robot
-Suite Setup     Setup Chrome Driver
-Suite Teardown  capture page screenshot
+Suite Setup     run keywords    Setup Chrome Driver    
+...   AND    set selenium speed    0.75s
+Suite Teardown  run keywords    capture page screenshot
+# ...    close all browsers
 
 # runner/run_in_prod.sh feature-failed-payment
 *** Test Cases ***
@@ -15,7 +17,8 @@ User Receives Error Message For Declined Credit Card Payment
     And User Selects Seven Day Sim Plans
     When User Purchases With A Declined Payment
     # Then Error Message Should Be Visible 
-        # CURRENT ISSUE: the next page is consistently "Our shopping cart isn't working right now...". For checking in network tab if bad request
+        # CURRENT ISSUE: the next page is consistently "Our shopping cart isn't working right now...". 
+        # CAUSE: Bad request: the delivery address is not a string apparently
 
     # INSTRUCTIONS TO APPLICANT:
     # Test data that you can use:

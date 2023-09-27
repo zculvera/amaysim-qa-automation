@@ -16,6 +16,7 @@ User Goes To Sim Plans
 
 User Selects Seven Day Sim Plans
     click element    ${homepage_nav_simplans_sevenday}
+    wait until element is not visible    ${homepage_nav_simplans_sevenday}
     wait for condition    return document.readyState == "complete"
     wait until element is visible    ${feedback_btn}
     title should be    7 Day SIM Plans | amaysim
@@ -35,5 +36,4 @@ User Selects Seven Day Sim Plans
 #==========================================================#
 Navigate To URL
     [Arguments]    ${URL}
-    create webdriver    ${BROWSER}
-    go to    ${URL}
+    open browser    ${URL}    ${BROWSER}    options=add_experimental_option("detach", True)
