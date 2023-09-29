@@ -33,6 +33,3 @@ User Selects Seven Day Sim Plans
 #==========================================================#
 #              INTERNAL KEYWORDS 
 #==========================================================#
-Navigate To URL
-    [Arguments]    ${URL}
-    open browser    ${URL}    ${BROWSER}    options=add_experimental_option("detach", True)
